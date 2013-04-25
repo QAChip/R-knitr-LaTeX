@@ -1,0 +1,69 @@
+La lectura registrada por cierto aparato de medida es una
+variable aleatoria $X$ con distribución normal. En una muestra de doce
+lecturas, tomadas al azar, se han observado los siguientes valores de la
+variable $X$.
+\begin{verbatim}
+\Sexpr{''}<<datos, eval=T,echo=T>>=
+X=c(10,15,11,12,8,13,16,5,14,5,6,5)
+@
+\end{verbatim}
+<<datos, eval=T,echo=F,include=F>>=
+X=c(10,15,11,12,8,13,16,5,14,5,6,5)
+@
+\begin{enumerate}
+\item Dar una estimación on puntual de la media de $X$. Justifíque la
+elección del estimador que se utiliza.
+\begin{verbatim}
+\Sexpr{''}<<promedio, eval=T,echo=T>>=
+prom.x=mean(X)
+@
+\end{verbatim}
+<<promedio, eval=T, echo=F, include=F>>=
+prom.x=mean(X)
+@
+Mediante el comando $\setminus Sexpr\{ \}$ es posible incluir el valor de una variable de R dentro del texto en \LaTeX. En el siguiente enunciado, se utiliza $\setminus Sexpr\{prom.x\}$ para mostrar el contenido de la variable $prom.x$.
+
+\begin{verbatim}
+$\bar{x}=\ Sexpr{prom.x}$.
+Se utilizó $\frac{1}{n}\sum\limits_{i=1}^{n}x_i, i\in \mathbb{N}$,
+porque se puede probar que es un estimador suficiente e insesgado de para estimar $\mu_X$
+\end{verbatim}
+
+El cual produce el siguiente resultado:
+
+\begin{quote}
+`$\bar{x}=\Sexpr{prom.x}$. Se utilizó $\frac{1}{n}\sum\limits_{i=1}^{n}x_i, i\in \mathbb{N}$, porque se puede probar que es un estimador suficiente e insesgado de para estimar $\mu_X$'.\end{quote}
+\item Obtener un intervalo de confianza, al 95\%, para la media de $X$.
+
+En los siguientes dos chunks se estima la varianza de la V.A. $X$ y se crea un intervalo de confianza al $(1-\alpha)\times 100\%$
+\begin{verbatim}
+\Sexpr{''}<<param, eval=T,echo=T>>=
+gl=length(X)-1
+alfa=0.05
+var.x=var(X)
+@
+\end{verbatim}
+
+<<param, eval=T,echo=F,include=F>>=
+gl=length(X)-1
+alfa=0.05
+var.x=var(X)
+@
+\begin{verbatim}
+\Sexpr{''}<<limites, eval=T, echo=T>>=
+b=qt(alfa/2,df=gl)*sqrt(var.x/length(X))
+lim.sup=mean(X)-b
+lim.inf=mean(X)+b
+@
+\end{verbatim}
+<<limites, eval=T,echo=F,include=F >>=
+b=qt(alfa/2,df=gl)*
+  sqrt(var.x/length(X))
+lim.sup=mean(X)-b
+lim.inf=mean(X)+b
+@
+En el siguinte enunciado, se vuelve a utilizar el comando $\setminus Sexpr\{lim.sup\}$ y $\setminus Sexpr\{lim.inf\}$ dentro del texto para introducir el valor de las variables $lim.sup$ y $lim.inf$ de R.
+\begin{quote}
+`\Sexpr{knit_child('IC.prueba.t.X.Rnw')}'
+\end{quote}
+\end{enumerate}

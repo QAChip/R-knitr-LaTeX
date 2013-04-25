@@ -1,0 +1,5 @@
+En breve, Git es un sistema distribuido para el control de versiones de software.
+\subsection{¿Qué dijo?}
+Git es un programa de codigo abierto desarrollado inicialmente por Linus Torvalds (también creador del Kernel de Linux) para gestionar el desarrollo del Kernel.
+Surge como una necesidad tras años de experiencia escribiendo código en colaboración con una gran cantidad de colaboradores que generan e incorporan código al Kernel de Linux continuamente.
+La idea principal de Git es la velocidad.

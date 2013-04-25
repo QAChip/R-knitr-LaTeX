@@ -1,0 +1,22 @@
+Obtener un intervalo de confianza, al 95\%, para la media de $X$. Por conveniencia, se define a $\mu_X$ como parámetro $\theta$.
+\begin{verbatim}
+\Sexpr{''}<<param eval=T,echo=T>>=
+gl=length(X)-1
+alfa=0.05
+var.x=var(X)
+@
+\end{verbatim}
+<<param, eval=T,echo=F,include=F>>=
+gl=length(X)-1
+alfa=0.05
+var.x=var(X)
+@
+
+<<limites, results=tex>>=
+b=qt(alfa/2,df=gl)*
+  sqrt(var.x/length(X))
+lim.sup=mean(X)-b
+lim.inf=mean(X)+b
+@
+\SweaveInput{IC.prueba.t.X}
+\end{enumerate}

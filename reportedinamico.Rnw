@@ -1,0 +1,11 @@
+Supongamos que un equipo de 3 estadísticos está trabajando en un informe.
+Cada uno de ellos tiene una tarea específica pero necesitan compartir su código y sus resultados de manera contínua y frecuente.
+Una opción de colaboración es que cada uno de ellos trabaje independientemente en lo que sería ``su versión del proyecto'' y eventualmente tendrán que fusionar todas las versiones en una sola y a partir de ahí continuar trabajando en ``su nueva versión del proyecto''. Supongamos también que deciden intercambiar sus archivos y sus resultados mediante correo electrónico. Hasta aquí, ¿no es obvia la ineficiencia en este proceso colaborativo?.
+
+Cada vez que uno de los colaboradores recibe un correo con la versión de sus demás colaboradores, necesitará fusionar o incorporar su versión con la nueva versión recibida.
+Este proceso se puede repetir una gran cantidad de veces haciendo que el proceso sea mucho más largo y mas tedioso de lo que realmente podría ser.
+
+Que tal que ahora el mismo equipo decide trabajar generando un único reporte dinámico que incorpora el código y los resultados en un mismo archivo, que los gráficos se generan automáticamente dentro del documento y que el contenido del documento cambia dinámicamente de acuerdo con los resultados.
+Además, todos tienen acceso a la misma versión del documento (alojado en la nube) y el proceso de fusión de cada actualización de las versiones es casi automático y tan sencillo como escribir un par de comandos en una consola.
+
+Esto es lo que se puede hacer al trabajar utilizando R+knitr+\LaTeX +Git.

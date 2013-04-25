@@ -1,0 +1,1 @@
+El IC al \Sexpr{(1-alfa)*100}\% de confianza para $\bar{x}$ es ($\Sexpr{round(lim.inf,4)},\Sexpr{round(lim.sup,4)}$).

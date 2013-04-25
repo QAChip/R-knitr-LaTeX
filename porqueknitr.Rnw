@@ -1,0 +1,8 @@
+La función principal de knitr es integrar \LaTeX y Markdown con R de una forma sencilla para generar informes dinámicos con una excelente presentación. Durante el desarrollo de un informe, es frecuente encontrarse repitiendo el mismo código una y otra vez, generando los mismos gráficos, y copiando y pegando código e imágenes entre la consola de R y el editor de texto.
+
+Pero ¿qué pasa si la base de datos cambia, o si hay algún error en el código y se debe hacer alguna modificación?.
+Lo natural sería revisar nuevamente todo el informe buscando las partes que se deben corregir, generando y copiando los gráficos nuevamente y copiando y pegando codigo (si fuese necesario), todo esto además de corregir el contenido en caso de que los resultados también hayan cambiado.
+Este proceso de edición y sustitución podría repetirse una y otra vez durante el desarrollo de un informe, lo cual es absurdamente repetitivo e innecesariamente aburrido y cansado.
+
+Al generar informes dinámicos con \LaTeX +knitr+R los gráficos se generan automáticamente y el codigo con el cual se obtienen los resultados es exactamente el mismo código dentro del informe. Además, mediante sentencias lógicas y condicionales (por ejemplo `if+then'), el contenido del texto puede cambiar automáticamente para adecuarse a los resultados, sin necesidad de editar la plantilla del informe.
+

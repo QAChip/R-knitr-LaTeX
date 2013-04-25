@@ -1,0 +1,18 @@
+Git es un software que se utiliza principalmente para el desarrollo de software en colaboración con otros desarrolladores. Sin embargo, el trabajo colaborativo no es exclusivo de los desarrolladores de software y el control de versiones tampoco.
+
+Durante el desarrollo de cualquier tipo de contenido, ya sea informes, artículos científicos o incluso un texto de cualquier tipo, es común avanzar y retroceder dentro del documento haciendo modificaciones en el contenido.
+Esta tarea de edición puede ser hecha por múltiples autores o por uno solo, sin embargo, cada edición que se haga en el documento es una nueva versión del documento.
+
+Tradicionalmente, cuando se trabaja en el desarrollo de un proyecto es común tener múltiples copias de un archivo (o de varios archivos) dentro de una carpeta con sufijos (o numeración) que hagan alusíon a los cambios hechos en cada archivo.
+Esto es una forma primitiva (y muy poco eficiente) de gestionar versiones.
+Git permite editar cada archivo de un proyecto y generar nuevas versiones (ramificaciones) del proyecto para experimentar con un nuevo enfoque o simplemente continuar creando contenido sin modifar la versión original.
+Una vez que se probó que el nuevo enfoque es (in)correcto, o que se tiene una cantidad de contenido lista para incorporarse a la versión original, estos cambios pueden ser incorparados fácilmente.
+Pero ¿qué pasa si mietras estoy trabajando en una versión súbitamente se me ocurre una nueva idea que me gustaría incorparar a mi proyecto, pero esta idea no cabe en la versión en la que estoy trabajando y tampaco en mi versión original?. En ese caso puedo crear una nueva rama (versión) de mi proyecto, cambiarme a esa nueva rama y comenzar a escribir sin necesidad de modificar alguna de las otras ramas en las que he estado trabajando.
+Es decir, Git permite experimentar y explorar nuevas ideas e incorporarlas a la versión principal cuando estén listas, sin la necesidad de duplicar archivos.
+Permite además moverse facilmente hacia adelante y atrás entre las versiones e incorporarlas a la rama principal en cualquier momento.
+
+Con Git, cada directorio dentro de una computadora puede ser un repositorio en el que se alojan los archivos y todas sus versiones junto con el registro de modificaciones.
+Si esta carpeta es copiada a otra computadora, se copia el historial completo de modificaciones, así como todos los archivos y sus versiones.
+
+Además, mediante servicios de alojamiente en la nube, también es posible alojar una carpeta local dentro de un repositorio en la nube para que cualquiera pueda copiarlo a su computadora, modificarlo y compartir nuevamente sus modificaciones con todos los demás colaboradores.
+De este modo, ya no es necesario enviar ``lo copia más reciente'' por correo y todos los colaboradores tienen acceso a la última versión del proyecto.

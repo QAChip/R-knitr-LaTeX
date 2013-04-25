@@ -1,0 +1,4 @@
+knitr es una librería de R para generar informes dinámicos, rápidos, flexibles y elegantes con R y \LaTeX.
+Originalmente surge para resolver algunos de los problemas no resueltos durante mucho tiempo en la librería Sweave y para combinar las funcionalidades de otros paquetes adicionales dentro de un solo paquete:
+
+knitr $\approx$ Sweave + cacheSweave + pgfSweave + weaver + animation::saveLatex + R2HTML::RweaveHTML + highlight::HighlightWeaveLatex + 0.2 * brew + 0.1 * SweaveListingUtils + más

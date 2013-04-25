@@ -1,0 +1,71 @@
+\documentclass[10pt,letterpaper,oneside]{report}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage[round,authoryear]{natbib}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=3cm,bottom=2cm]{geometry}
+\usepackage{hyperref}
+\author{Q.A. Christian I. Ponce}
+\title{Creación de informes dinámicos con R+knitr+\LaTeX en colaboración}
+\begin{document}
+\maketitle
+<<chunk0,echo=F>>=
+library("xtable")
+library("knitr")
+@
+\chapter{¿De que estamos hablando?}
+\section{¿Qué es knitr?}
+\Sexpr{knit_child('queesknitr.Rnw')}
+\section{¿Por qué utilizar knitr?}
+\Sexpr{knit_child('porqueknitr.Rnw')}
+\section{¿Qué es Git?}
+\Sexpr{knit_child('queesgit.Rnw')}
+\section{Soy estadístico, ¿a mi qué me importa Git?}
+\Sexpr{knit_child('soyestadistico.Rnw')}
+\section{R+knitr+\LaTeX +Git para generar reportes dinámicos en colaboración}
+\Sexpr{knit_child('reportedinamico.Rnw')}
+\chapter{Ok, voy entendiendo, ¿tienes ejemplos?}
+\section{Ejemplo de R+knitr+\LaTeX :}
+Para poder utilizar knitr y R, primero debemos instalar la librería knitr en R. Para esto, en la consola de R se debe introducir el comando:
+\begin{verbatim}
+install.packages("knitr")
+\end{verbatim}
+Para poder compilar los documentos de \LaTeX + knitr, los archivos deben ser guardados con la extensión `.Rnw'.
+Una vez instalada la librería knitr, se debe utilizar ``chunks'' de código dentro del archivo .Rnw de \LaTeX.
+
+Los chunks son pedazos de código que se escribe dentro de un ambiente de R. El ambiente de R se crea colocando el código entre las llaves:
+\begin{verbatim}
+\Sexpr{''}<<>>=
+#código de R
+#más código de R
+@
+\end{verbatim}
+La parte superior del chunk se utiliza para introducir opciones para modificar la salida del chunk.
+
+El siguiente chunk es un ejemplo de lo que sería el primer chunk que se utiliza para cargar todas las librerías de R necesarias. El primer argumento del chunk es el nombre y las siguientes opciones se utilizan para controlar la salida de R, en este caso, `eval=T' significa que el chunk debe ser evaluado. Para obtener una lista de todos las opciones disponibles, se puede consultar la página \url{http://yihui.name/knitr/options}.
+\begin{verbatim}
+\Sexpr{''}<<chunk0, eval=T>>=
+library("xtable")
+library("knitr")
+@
+\end{verbatim}
+\subsection{Ejemplo 1:}
+\Sexpr{knit_child('ejemplo1.Rnw')}
+
+Si no se estuviera trabajando con una plantilla de informe dinámica, si fuese necesario modificar un solo dato de los valores originales, se debería cambiar todos los resultados dentro del informe, sin embargo, al trabajar de este modo, todos los resultados se actualizan automáticamente al compilar el documento \LaTeX.
+\subsection{Ejemplo de Git:}
+Cómo utilizar Git para gestionar las versiones de un projecto y alojarlo en la Internet es bastante sencillo pero la explicación es bastante extensa. Como referencia, Pro Git \citep{chacon2009pro} es un libro completo y libre para aprender a utilizar este utilílismo sistema. Además, si se busca `How to Git' en \url{http://youtube.com} y \url{http://google.com} se puede encontrar suficiente información para instalar y comenzar a utilizar Git rápidamente.
+\section{Conclusiones:}
+El proceso de redacción de informes puede ser una tarea sencilla si se utilizan las herramientas correctas. La curva de aprendizaje de las herramientas aquí mencionadas puede ser lenta en un inicio, pero una vez que se ha asimilado el uso de R+knitr+\LaTeX +Git, el trabajo se simplifica porque ya no es necesario salvar, copiar y pegar imágenes, código ni resultados.
+
+El uso de un sistema de control de versiones simplemente es una buena práctica.
+En realidad existen varias opciones, sin embargo, Git es un sistema que ha ganado mucha popularidad por su sencillez, poder y velocidad. Existe en la Internet muchísima información escrita y videotutoriales para aprender lo básico sobre la gestión de versiones con Git.
+
+El código del presente documento se encuentra alojado en \url{https://github.com/QAChip/R-knitr-LaTeX}. Cualquiera es capáz de clonar el repositorio y modificar, corregir y aportar a este proyecto.
+\bibliographystyle{plainnat}
+\bibliography{Bibliografia}
+\end{document}
