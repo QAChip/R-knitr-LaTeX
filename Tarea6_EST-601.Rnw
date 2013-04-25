@@ -109,9 +109,13 @@ En caso de requerir alojar un repositorio en algún servidor en línea, se debe 
 
 Una vez que se tiene un repositorio local y una llave, lo que sigue es crear una cuenta en algún sitio que ofrezca el servicio de alojamiento de repositorios. El sitio \url{https://github.com} es uno de los más populares. Dentro de este sitio se puede encontrar fácilmente las instrucciones para crear un perfil de usuario, los pasos que hay que seguir para crear un repositorio y cómo establecer la comunicación entre nuesta computadora y el servidor.
 \subsection{Copiar un repositorio local a un repositorio en línea}
-Una vez que se tiene instalado y configurado Git, y una cuenta en Github, basta con hacer un \emph{push} desde el repositorio local hacia el servidor. Por ejemplo, para copiar este documento hacia el servidor que lo aloja, se utilizó el comando:
+Una vez que se tiene instalado y configurado Git, y una cuenta en Github, basta con hacer un \emph{push} desde el repositorio local hacia el servidor. Primero debemos decir a Git dónde se encuentra el repositorio remoto en el que deseamos clonar nuestro repositorio local. Esto se logra mediante el comando.
 \begin{verbatim}
-git push
+git@github.com:QAChip/R-knitr-LaTeX.git
+\end{verbatim}
+Ahora sí podemos copiar nuestro repositorio local hacia el servidor que lo alojará, mediante el comando:
+\begin{verbatim}
+git push origin master
 \end{verbatim}
 
 Cómo utilizar Git para gestionar las versiones de un projecto y alojarlo en la Internet es bastante sencillo pero la explicación es bastante extensa. Como referencia, Pro Git \citep{chacon2009pro} es un libro completo y libre para aprender a utilizar este utilílismo sistema. Además, si se busca `How to Git' en \url{http://youtube.com} y \url{http://google.com} se puede encontrar suficiente información para instalar y comenzar a utilizar Git rápidamente.
