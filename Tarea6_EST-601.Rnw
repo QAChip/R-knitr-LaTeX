@@ -37,7 +37,8 @@ install.packages("knitr")
 Para poder compilar los documentos de \LaTeX + knitr, los archivos deben ser guardados con la extensión `.Rnw'.
 Una vez instalada la librería knitr, se debe utilizar ``chunks'' de código dentro del archivo .Rnw de \LaTeX.
 
-Los chunks son pedazos de código que se escribe dentro de un ambiente de R. El ambiente de R se crea colocando el código entre las llaves:
+Los chunks son pedazos de código que se escribe dentro de un ambiente de R.
+El ambiente de R se crea colocando el código entre las llaves:
 \begin{verbatim}
 \Sexpr{''}<<>>=
 #código de R
@@ -46,7 +47,9 @@ Los chunks son pedazos de código que se escribe dentro de un ambiente de R. El 
 \end{verbatim}
 La parte superior del chunk se utiliza para introducir opciones para modificar la salida del chunk.
 
-El siguiente chunk es un ejemplo de lo que sería el primer chunk que se utiliza para cargar todas las librerías de R necesarias. El primer argumento del chunk es el nombre y las siguientes opciones se utilizan para controlar la salida de R, en este caso, `eval=T' significa que el chunk debe ser evaluado. Para obtener una lista de todos las opciones disponibles, se puede consultar la página \url{http://yihui.name/knitr/options}.
+El siguiente chunk es un ejemplo de lo que sería el primer chunk que se utiliza para cargar todas las librerías de R necesarias.
+El primer argumento del chunk es el nombre y las siguientes opciones se utilizan para controlar la salida de R, en este caso, `eval=T' significa que el chunk debe ser evaluado.
+Para obtener una lista de todos las opciones disponibles, se puede consultar la página \url{http://yihui.name/knitr/options}.
 \begin{verbatim}
 \Sexpr{''}<<chunk0, eval=T>>=
 library("xtable")
@@ -58,13 +61,17 @@ library("knitr")
 
 Si no se estuviera trabajando con una plantilla de informe dinámica, si fuese necesario modificar un solo dato de los valores originales, se debería cambiar todos los resultados dentro del informe, sin embargo, al trabajar de este modo, todos los resultados se actualizan automáticamente al compilar el documento \LaTeX.
 
-\section{Cómo instalo y utilizo Git:}
+\section{¿Cómo instalo Git?}
 \subsection{¿Dónde obtengo Git?}
-Git se puede obtener directamente en la página \url{http://git-scm.com/download}. En el sitio oficial de Git se puede encotrar las instrucciones para su instalación en las diferentes plataformas para las que tiene soporte.
+Git se puede obtener directamente en la página \url{http://git-scm.com/download}.
+En el sitio oficial de Git se puede encotrar las instrucciones para su instalación en las diferentes plataformas para las que tiene soporte.
 \subsection{Ya tengo instalado Git, ¿ahora que sigue?}
-Una vez instalado, es necesario configurar Git. Las instrucciones para llevar a cabo la configuración se encuentran en la dirección \url{https://help.github.com/articles/set-up-git}. En resumen, se debe crear un `Nombre de usuario' y proporcionar una dirección de correo electrónico.
+Una vez instalado, es necesario configurar Git.
+Las instrucciones para llevar a cabo la configuración se encuentran en la dirección \url{https://help.github.com/articles/set-up-git}.
+En resumen, se debe crear un `Nombre de usuario' y proporcionar una dirección de correo electrónico.
 \subsection{Creación de un repositorio local}
-Para crear un repositorio local donde se almacenarán los archivos del proyecto y se llevará un registro de sus cambios. se debe de abrir una consola (alias teriminal) y navegar hasta el directorio en el que creará el repositorio. Una vez que se encuentre dentro de la carpeta que será el repositorio local de nuestro proyecto, se debe introducir el comando:
+Para crear un repositorio local donde se almacenarán los archivos del proyecto y se llevará un registro de sus cambios, se debe de abrir una consola (alias teriminal) y navegar hasta el directorio en el que creará el repositorio.
+Una vez que se encuentre dentro de la carpeta que será el repositorio local de nuestro proyecto, se debe introducir el comando:
 \begin{verbatim}
 git init
 \end{verbatim}
@@ -72,11 +79,14 @@ y se creará una carpeta oculta en donde se almacenará toda la información rel
 \subsection{Ya tengo un repositorio local, ¿cómo hago para que Git de seguimiento a mis archivos?}
 Los archivos dentro de un repositorio Git pueden estar en tres estados distintos:
 \begin{enumerate}
-\item[\emph{Modified}] Archivo modificado, que no estan listos para incorporarse a la versión de trabajo.
-\item[\emph{Added}] Archivos modificados listos para ser incorporados a la versión de trabajo, pero que aún no han sido incorporados. En esta etapa, pueden volver a ser modificados sin afectar la versión de trabajo.
-\item[\emph{Commited}] Archivos incorporados a la versión de trabajo. Una vez que se hizo un \emph{commit} al archivo, ya están guardados los cambios y se creó una versión actualizada (nueva) del proyecto.
+\item[\emph{Modified}] Archivo modificado, que no estan listos para incorporarse al proyecto y crear una nueva versión del mismo.
+\item[\emph{Added}] Archivos modificados listos para ser incorporados a la versión de trabajo, pero que aún no han sido incorporados.
+En esta etapa, pueden volver a ser modificados sin afectar la versión de trabajo.
+\item[\emph{Commited}] Archivos incorporados a la versión de trabajo.
+Una vez que se hizo un \emph{commit} al archivo, ya están guardados los cambios y se creó una versión actualizada (nueva) del proyecto.
 \end{enumerate}
-El ciclo de modificación de los archivo es: Modified$\rightarrow$ Added$\rightarrow$ Commited. Este ciclo se repite una y otra vez cada vez que se decide modificar un archivo del proyecto.
+El ciclo de modificación de los archivo es: Modified$\rightarrow$ Added$\rightarrow$ Commited.
+Este ciclo se repite una y otra vez cada vez que se decide modificar un archivo del proyecto.
 
 Para ver el estado de cada archivo dentro del proyecto, en una consola (dentro del repositorio local) se teclea el comando:
 \begin{verbatim}
@@ -84,48 +94,61 @@ git status
 \end{verbatim}
 el cual proporciona el estado de todos los archivos dentro de la carpeta.
 
-Supongamos que ya creamos un archivo llamado LEEME y que deseamos que Git de seguimiento a los cambios en ese archivo. Una vez que lo llenamos con la información que deseamos y deseamos incorporarlo a una nueva versión del proyecto, en la consola se debe introducir los comandos:
+Supongamos que ya creamos un archivo llamado LEEME y que deseamos que Git dé seguimiento a los cambios en ese archivo.
+Una vez que lo llenamos con la información que deseamos y deseamos incorporarlo a una nueva versión del proyecto, en la consola se debe introducir los comandos:
 \begin{verbatim}
 git add LEEME
 git commit -m 'Un mensaje para identificar este commit'
 \end{verbatim}
-De este modo, se le ha dicha a Git que dé seguimieto a los cambios en el archivo LEEME y que además guarde los cambios hechos hasta ahora en una nueva versión del proyecto.
+De este modo, se le ha dicho a Git que dé seguimieto a los cambios en el archivo LEEME y que además guarde los cambios hechos hasta ahora en una nueva versión del proyecto.
 
-En ocasiones, habrá archivo a los que no se quiera dar seguimiento con Git, como imágenes, registros (\emph{logs}), y archivos auxiliares que se crean automáticamente durante la compilación de un archivo. Estos archivos (o tipos de archivos) a los que no se les quiere dar seguimiento se deben declarar explícitamente dentro de un archivo llamado `.gitignore' dentro de la carpeta del repositorio. Si no existe, se debe crear el archivo. Por ejemplo, si se desea que Git ignore todos los archivos con extención .tex, .aux, .log, .Rproj, se deben incluir estas líneas dentro del archivo `.gitignore':
+En ocasiones, habrá archivo a los que no se quiera dar seguimiento con Git, como imágenes, registros (\emph{logs}), y archivos auxiliares que se crean automáticamente durante la compilación de un archivo.
+Estos archivos (o tipos de archivos) a los que no se les quiere dar seguimiento se deben declarar explícitamente dentro de un archivo llamado `.gitignore' dentro de la carpeta del repositorio.
+Si no existe, se debe crear el archivo.
+Por ejemplo, si se desea que Git ignore todos los archivos con extención .tex, .aux, .log, .Rproj, se deben incluir estas líneas dentro del archivo `.gitignore':
 \begin{verbatim}
 *.tex
 *.aux
 *.log
 *.Rproj
 \end{verbatim}
-Obviamente, si deseamos que Git dé seguimiento a los cambios en el archivo .gitignore, se debe dar las instrucciones necesarias. Analogamente al ejemplo del archivo LEEME.
+Obviamente, si deseamos que Git dé seguimiento a los cambios en el archivo .gitignore, se debe dar las instrucciones necesarias.
+Analogamente al ejemplo del archivo LEEME.
 \begin{verbatim}
 git add .gitignore
 git commit -m 'Creación del archivo .gitignore'
 \end{verbatim}
-
 \subsection{Creación de un repositorio remoto}
-En caso de requerir alojar un repositorio en algún servidor en línea, se debe crear una llave pública y privada que servirá para asegurar la comunicación entre nuestra computadora y el servidor. En la página \url{https://help.github.com/articles/generating-ssh-keys} se encuentra la información necesaria para llevar a cabo esta tarea.
+En caso de requerir alojar un repositorio en algún servidor en línea, se debe crear una llave pública y privada que servirá para asegurar la comunicación entre nuestra computadora y el servidor.
+En la página \url{https://help.github.com/articles/generating-ssh-keys} se encuentra la información necesaria para llevar a cabo esta tarea.
 
-Una vez que se tiene un repositorio local y una llave, lo que sigue es crear una cuenta en algún sitio que ofrezca el servicio de alojamiento de repositorios. El sitio \url{https://github.com} es uno de los más populares. Dentro de este sitio se puede encontrar fácilmente las instrucciones para crear un perfil de usuario, los pasos que hay que seguir para crear un repositorio y cómo establecer la comunicación entre nuesta computadora y el servidor.
-\subsection{Copiar un repositorio local a un repositorio en línea}
-Una vez que se tiene instalado y configurado Git, y una cuenta en Github, basta con hacer un \emph{push} desde el repositorio local hacia el servidor. Primero debemos decir a Git dónde se encuentra el repositorio remoto en el que deseamos clonar nuestro repositorio local. Esto se logra mediante el comando.
+Una vez que se tiene un repositorio local y una llave, lo que sigue es crear una cuenta en algún sitio que ofrezca el servicio de alojamiento de repositorios.
+El sitio \url{https://github.com} es uno de los más populares.
+Dentro de este sitio se puede encontrar fácilmente las instrucciones para crear un perfil de usuario, los pasos que hay que seguir para crear un repositorio y cómo establecer la comunicación entre nuesta computadora y el servidor.
+\subsection{¿Cómo copio un repositorio local a un repositorio en línea?}
+Una vez que se tiene instalado y configurado Git, y una cuenta en Github, basta con hacer un \emph{push} desde el repositorio local hacia el servidor, pero primero debemos decir a Git dónde se encuentra el repositorio remoto en el que deseamos clonar nuestro repositorio local.
+Esto se logra mediante el comando.
 \begin{verbatim}
-git@github.com:QAChip/R-knitr-LaTeX.git
+git add origin git@github.com:QAChip/R-knitr-LaTeX.git
 \end{verbatim}
+donde \emph{git@github.com:QAChip/R-knitr-LaTeX.git} es la ubicación de nuestro repositorio dentro de github.
+
 Ahora sí podemos copiar nuestro repositorio local hacia el servidor que lo alojará, mediante el comando:
 \begin{verbatim}
 git push origin master
 \end{verbatim}
+¡Listo! nuestro repositorio local está clonado en nuestro repositorio remoto.
 
-Cómo utilizar Git para gestionar las versiones de un projecto y alojarlo en la Internet es bastante sencillo pero la explicación es bastante extensa. Como referencia, Pro Git \citep{chacon2009pro} es un libro completo y libre para aprender a utilizar este utilílismo sistema. Además, si se busca `How to Git' en \url{http://youtube.com} y \url{http://google.com} se puede encontrar suficiente información para instalar y comenzar a utilizar Git rápidamente.
 \section{Conclusiones:}
-El proceso de redacción de informes puede ser una tarea sencilla si se utilizan las herramientas correctas. La curva de aprendizaje de las herramientas aquí mencionadas puede ser lenta en un inicio, pero una vez que se ha asimilado el uso de R+knitr+\LaTeX +Git, el trabajo se simplifica porque ya no es necesario salvar, copiar y pegar imágenes, código ni resultados.
+El proceso de redacción de informes puede ser una tarea sencilla si se utilizan las herramientas correctas.
+La curva de aprendizaje de las herramientas aquí mencionadas puede ser lenta en un inicio, pero una vez que se ha asimilado el uso de R+knitr+\LaTeX +Git, el trabajo se simplifica porque ya no es necesario salvar, copiar y pegar imágenes, código ni resultados.
 
 El uso de un sistema de control de versiones simplemente es una buena práctica.
-En realidad existen varias opciones, sin embargo, Git es un sistema que ha ganado mucha popularidad por su sencillez, poder y velocidad. Existe en la Internet muchísima información escrita y videotutoriales para aprender lo básico sobre la gestión de versiones con Git.
+En realidad existen varias opciones, sin embargo, Git es un sistema que ha ganado mucha popularidad por su sencillez, poder y velocidad.
 
-El código del presente documento se encuentra alojado en \url{https://github.com/QAChip/R-knitr-LaTeX}. Cualquiera es capáz de clonar el repositorio y modificar, corregir y aportar a este proyecto.
+Cómo se puede ver, utilizar Git para gestionar las versiones de un proyecto y alojarlo en la Internet es bastante sencillo pero la explicación es bastante extensa. Como referencia, Pro Git \citep{chacon2009pro} es un libro completo y libre para aprender a utilizar este utilílismo sistema. Existe en la Internet muchísima información escrita y videotutoriales para aprender lo básico sobre la gestión de versiones con Git. Si se busca `\emph{How to Git}' en \url{http://youtube.com} y \url{http://google.com} se puede encontrar suficiente información para instalar y comenzar a utilizar Git rápidamente.
+
+El código del presente documento se encuentra alojado en \url{https://github.com/QAChip/R-knitr-LaTeX}.
 \bibliographystyle{plainnat}
 \bibliography{Bibliografia}
 \end{document}
